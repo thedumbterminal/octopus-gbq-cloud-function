@@ -12,6 +12,19 @@ scripts/setup_python.sh
 scripts/install.sh
 ```
 
+Create tables in Google BigQuery:
+
+```
+ bq mk --dataset --description="Energy usage" --location=EU energy_usage
+GOOGLE_PROJECT=yourproject python src/create_tables.py
+```
+
+Setup Gcloud auth:
+
+```
+gcloud auth application-default login
+```
+
 ## Testing
 
 ```

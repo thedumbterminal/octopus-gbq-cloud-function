@@ -1,2 +1,3 @@
 functions-framework==3.*
 octopus-energy-client
+google-cloud-bigquery
