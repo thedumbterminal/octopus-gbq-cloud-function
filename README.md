@@ -30,7 +30,7 @@ gcloud auth application-default login
 To run the cloud function as a local web server:
 
 ```
-functions-framework --source ./src/main.py --target entry_http --debug
+functions-framework --source ./main.py --target entry_http --debug
 ```
 
 Then to get data for yesterday:

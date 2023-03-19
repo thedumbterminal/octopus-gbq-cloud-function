@@ -1,4 +1,3 @@
-import functions_framework
 from octopus_energy_client import OctopusEnergy, ResourceType, ChargeType, Aggregate
 from datetime import datetime, timedelta, date
 from google.cloud import bigquery
@@ -37,24 +36,4 @@ def save_gas(when, usage):
     table_id='energy_usage.octopus_gas'
     bigquery_client.insert_rows_json(table_id, [row_to_insert])
 
-
-@functions_framework.http
-def entry_http(request):
-    """
-    HTTP Cloud Function.
-    """
-    
-    request_args = request.args
-
-    when = datetime.now() - timedelta(days = 1)
-    if request_args['date']:
-        when = date.fromisoformat(request_args['date'])
-    print('Running for date: ', when)
-
-    elec_amount = elec_for_day(when)
-    save_elec(when, elec_amount)
-    gas_amount = gas_for_day(when)
-    save_gas(when, gas_amount)
-
-    return f'Elec amount: {elec_amount}, Gas amount: {gas_amount}'
 
