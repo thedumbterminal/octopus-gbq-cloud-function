@@ -36,13 +36,13 @@ functions-framework --source ./main.py --target entry_http --debug
 Then to get data for yesterday:
 
 ```
-curl -v http://localhost:8080/
+scripts/execute_dev.sh
 ```
 
 Or to get data for a specific day:
 
 ```
-curl "http://localhost:8080/?date=2023-03-01"
+scripts/execute_dev.sh 2023-03-01
 ```
 
 ### Environment variables
@@ -62,3 +62,27 @@ https://octopus.energy/dashboard/developer/
 ```
 scripts/deploy.sh
 ```
+
+### Manual execution
+
+To get data for yesterday:
+
+```
+scripts/execute_production.sh
+```
+
+Or to get data for a specific day:
+
+```
+scripts/execute_production.sh 2023-03-01
+```
+
+## TODO
+
+* Document secret setup
+
+* Document env var setup
+
+* Document cloud function setup
+
+* Execute cloud function from gcloud cli

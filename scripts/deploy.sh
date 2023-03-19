@@ -9,6 +9,6 @@ gcloud functions deploy ${FUNCTION_NAME} \
   --gen2 \
   --region=${REGION} \
   --runtime=python310 \
-  --source=./src \
+  --source=./ \
   --entry-point=entry_http \
   --trigger-http

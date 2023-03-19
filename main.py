@@ -8,12 +8,13 @@ def entry_http(request):
     """
     HTTP Cloud Function.
     """
-    
-    request_args = request.args
 
-    when = datetime.now() - timedelta(days = 1)
-    if request_args['date']:
-        when = date.fromisoformat(request_args['date'])
+    request_json = request.get_json(silent=True)
+    if request_json and 'date' in request_json:
+        when = date.fromisoformat(request_json['date'])
+    else:
+        when = datetime.now() - timedelta(days = 1)
+
     print('Running for date: ', when)
 
     elec_amount = elec_for_day(when)
