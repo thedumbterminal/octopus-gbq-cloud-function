@@ -7,7 +7,7 @@ REGION=europe-west2
 
 if [ "${DATE}" != "" ]; then
   echo "Using date: ${DATE}"
-  gcloud functions call ${FUNCTION_NAME} --region=${REGION} --gen2 --data '{"date":"${DATE}"}'
+  gcloud functions call ${FUNCTION_NAME} --region=${REGION} --gen2 --data "{\"date\":\"${DATE}\"}"
 else
   gcloud functions call ${FUNCTION_NAME} --region=${REGION} --gen2
 fi

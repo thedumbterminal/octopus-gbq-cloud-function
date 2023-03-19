@@ -15,9 +15,14 @@ scripts/install.sh
 Create tables in Google BigQuery:
 
 ```
- bq mk --dataset --description="Energy usage" --location=EU energy_usage
+bq mk --dataset --description="Energy usage" --location=EU energy_usage
 GOOGLE_PROJECT=yourproject python src/create_tables.py
 ```
+
+Google BigQuery Permissions:
+
+Grant `BigQuery Data Editor` to the function's service account on the dataset created above.
+
 
 Setup Gcloud auth:
 
