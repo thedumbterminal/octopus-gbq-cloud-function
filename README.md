@@ -90,4 +90,5 @@ scripts/execute_production.sh 2023-03-01
 
 * Document cloud function setup
 
-* Execute cloud function from gcloud cli
+* Fix permissions so scheduler can run function
+

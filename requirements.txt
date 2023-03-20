@@ -1,3 +1,7 @@
 functions-framework==3.*
 octopus-energy-client
 google-cloud-bigquery
+
+#dev includes
+flake8 == 6.0.0
+black == 22.12.0
