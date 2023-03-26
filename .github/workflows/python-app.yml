@@ -28,4 +28,4 @@ jobs:
         scripts/install.sh
     - name: CI
       run: |
-        flake8 --statistics .
+        invoke ci

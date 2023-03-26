@@ -12,6 +12,12 @@ scripts/setup_python.sh
 scripts/install.sh
 ```
 
+Setup Gcloud auth:
+
+```
+gcloud auth application-default login
+```
+
 Create tables in Google BigQuery:
 
 ```
@@ -24,10 +30,10 @@ Google BigQuery Permissions:
 Grant `BigQuery Data Editor` to the function's service account on the dataset created above.
 
 
-Setup Gcloud auth:
+Add cloud function permissions to service account:
 
 ```
-gcloud auth application-default login
+gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.invoker
 ```
 
 ## Development
