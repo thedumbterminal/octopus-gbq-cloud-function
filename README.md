@@ -41,7 +41,7 @@ gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceacc
 To run the cloud function as a local web server:
 
 ```
-functions-framework --source ./main.py --target entry_http --debug
+invoke start
 ```
 
 Then to get data for yesterday:

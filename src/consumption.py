@@ -8,6 +8,8 @@ bigquery_client = bigquery.Client()
 
 def consumption_from_response(response):
     print(response)
+    if response["count"] == 0:
+        return
     return response["results"][0]["consumption"]
 
 

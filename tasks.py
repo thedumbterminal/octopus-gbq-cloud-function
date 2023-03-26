@@ -25,6 +25,18 @@ def lint(c):
     c.run("flake8 --statistics .")
 
 
-@task(lint)
+@task
+def test(c):
+    c.run(
+        "OCTOPUS_API_KEY=x"
+        " OCTOPUS_ELECTRICITY_SERIAL=x"
+        " OCTOPUS_ELECTRICITY_MPAN=x"
+        " OCTOPUS_GAS_SERIAL=x"
+        " OCTOPUS_GAS_MPRN=x"
+        " pytest . --cov"
+    )
+
+
+@task(lint, test)
 def ci(c):
     pass
