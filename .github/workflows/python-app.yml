@@ -19,6 +19,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
+      with:
+        skip_install: true
+
+    - name: 'Use gcloud CLI'
+      run: 'gcloud info'
+
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:

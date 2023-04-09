@@ -8,7 +8,7 @@ def entry_http(request):
     """
     HTTP Cloud Function.
     """
-
+    print("entry_http()")
     request_json = request.get_json(silent=True)
     if request_json and "date" in request_json:
         when = date.fromisoformat(request_json["date"])
@@ -22,4 +22,5 @@ def entry_http(request):
     gas_amount = gas_for_day(when)
     save_gas(when, gas_amount)
 
+    print(f"Elec amount: {elec_amount}, Gas amount: {gas_amount}")
     return f"Elec amount: {elec_amount}, Gas amount: {gas_amount}"
