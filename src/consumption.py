@@ -27,26 +27,24 @@ def gas_for_day(when):
     return consumption_from_response(gas_consumption)
 
 
-def insert_row_into_table(table, row):
+def insert_row_into_table(table, when, usage):
+    row = {
+        "date": when.strftime('%Y-%m-%d'),
+        "usage": usage,
+        "updated": datetime.now().isoformat(),
+    }
     print(table, row)
-    bigquery_client.insert_rows_json(table, [row])
+    errors = bigquery_client.insert_rows_json(table, [row])
+    if errors != []:
+        print(errors[0])
+        raise Exception(errors[0]['errors'])
 
 
 def save_elec(when, usage):
-    row_to_insert = {
-        "date": when.isoformat(),
-        "usage": usage,
-        "updated": datetime.now().isoformat(),
-    }
     table_id = "energy_usage.octopus_electricity"
-    insert_row_into_table(table_id, row_to_insert)
+    insert_row_into_table(table_id, when, usage)
 
 
 def save_gas(when, usage):
-    row_to_insert = {
-        "date": when.isoformat(),
-        "usage": usage,
-        "updated": datetime.now().isoformat(),
-    }
     table_id = "energy_usage.octopus_gas"
-    insert_row_into_table(table_id, row_to_insert)
+    insert_row_into_table(table_id, when, usage)
