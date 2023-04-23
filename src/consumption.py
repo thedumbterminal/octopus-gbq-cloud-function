@@ -9,7 +9,7 @@ bigquery_client = bigquery.Client()
 def consumption_from_response(response):
     print(response)
     if response["count"] == 0:
-        return
+        return 0
     return response["results"][0]["consumption"]
 
 
@@ -30,7 +30,7 @@ def gas_for_day(when):
 def insert_row_into_table(table, when, usage):
     row = {
         "date": when.strftime('%Y-%m-%d'),
-        "usage": usage or 0,
+        "usage": usage,
         "updated": datetime.now().isoformat(),
     }
     print(table, row)
