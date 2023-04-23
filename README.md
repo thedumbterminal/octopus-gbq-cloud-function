@@ -35,6 +35,8 @@ Add cloud function permissions to service account:
 
 ```
 gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.invoker
+gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.developer
+gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/iam.serviceAccountUser
 ```
 
 Generate a new key for the service account, add this to your github repo along with the project nume.
