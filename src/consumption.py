@@ -31,7 +31,7 @@ def insert_row_into_table(table, when, usage):
     row = {
         "date": when.strftime('%Y-%m-%d'),
         "usage": usage,
-        "updated": datetime.now().isoformat(),
+        "updated": datetime.utcnow().isoformat(),
     }
     print(table, row)
     errors = bigquery_client.insert_rows_json(table, [row])
