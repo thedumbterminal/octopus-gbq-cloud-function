@@ -30,7 +30,7 @@ def gas_for_day(when):
 def insert_row_into_table(table, when, usage):
     row = {
         "date": when.strftime('%Y-%m-%d'),
-        "usage": usage,
+        "usage": usage or 0,
         "updated": datetime.now().isoformat(),
     }
     print(table, row)
