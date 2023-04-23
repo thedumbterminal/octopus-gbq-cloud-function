@@ -44,3 +44,6 @@ jobs:
     - name: CI
       run: |
         invoke ci
+    - name: Deploy
+      run: |
+        scripts/deploy.sh

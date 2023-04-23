@@ -25,16 +25,20 @@ bq mk --dataset --description="Energy usage" --location=EU energy_usage
 GOOGLE_PROJECT=yourproject python src/create_tables.py
 ```
 
+Create a new service account for this project.
+
 Google BigQuery Permissions:
 
 Grant `BigQuery Data Editor` to the function's service account on the dataset created above.
-
 
 Add cloud function permissions to service account:
 
 ```
 gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.invoker
 ```
+
+Generate a new key for the service account, add this to your github repo along with the project nume.
+
 
 ## Development
 
@@ -90,11 +94,9 @@ scripts/execute_production.sh 2023-03-01
 
 ## TODO
 
-* Document secret setup
+* Document cloud function secret setup
 
 * Document env var setup
 
 * Document cloud function setup
-
-* Fix permissions so scheduler can run function
 
