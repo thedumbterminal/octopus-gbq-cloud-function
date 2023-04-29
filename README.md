@@ -1,5 +1,10 @@
 # octopus-gbq-cloud-function
-Import Octopus Energy data into Google BigQuery
+
+Import Octopus Energy data into Google BigQuery.
+
+Details of the Octopus Energy API can be found here:
+
+https://developer.octopus.energy/docs/api/#
 
 ## Requirements
 
@@ -34,9 +39,9 @@ Grant `BigQuery Data Editor` to the function's service account on the dataset cr
 Add cloud function permissions to service account:
 
 ```
-gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.invoker
-gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.developer
-gcloud projects add-iam-policy-binding dumb-1 --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/iam.serviceAccountUser
+gcloud projects add-iam-policy-binding yourproject --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.invoker
+gcloud projects add-iam-policy-binding yourproject --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/cloudfunctions.developer
+gcloud projects add-iam-policy-binding yourproject --member serviceAccount:serviceaccount@yourproject.iam.gserviceaccount.com --role roles/iam.serviceAccountUser
 ```
 
 Generate a new key for the service account, add this to your github repo along with the project nume.
